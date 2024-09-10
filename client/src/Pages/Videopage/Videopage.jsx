@@ -1,25 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Videopage.css"
 import moment from 'moment'
 import Likewatchlatersavebtns from './Likewatchlatersavebtns'
 import { useParams, Link } from 'react-router-dom'
-// import vidd from '../../Components/Video/vid.mp4'
+import Comment from '../../Component/Comment/Comment'
+// import vidd from "../../Component/Video/vid.mp4"
 import { viewvideo } from '../../action/video'
-import Comment from '../../Components/Comment/Comment'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
 import { addtohistory } from '../../action/history'
-
+import { useSelector,useDispatch } from 'react-redux'
 const Videopage = () => {
-
     const { vid } = useParams();
-    const dispatch = useDispatch();
+    const dispatch=useDispatch()
     const vids=useSelector((state)=>state.videoreducer)
-
     // const vids = [
     //     {
     //         _id: 1,
-    //         video_src: vid,
+    //         video_src: vidd,
     //         chanel: "wvjwenfj3njfwef",
     //         title: "video 1",
     //         uploader: "abc",
@@ -27,7 +23,7 @@ const Videopage = () => {
     //     },
     //     {
     //         _id: 1,
-    //         video_src: vid,
+    //         video_src: vidd,
     //         chanel: "wvjwenfj3njfwef",
     //         title: "video 1",
     //         uploader: "abc",
@@ -35,7 +31,7 @@ const Videopage = () => {
     //     },
     //     {
     //         _id: 2,
-    //         video_src: vid,
+    //         video_src: vidd,
     //         chanel: "wvjwenfj3njfwef",
     //         title: "video 2",
     //         uploader: "abc",
@@ -43,7 +39,7 @@ const Videopage = () => {
     //     },
     //     {
     //         _id: 3,
-    //         video_src: vid,
+    //         video_src: vidd,
     //         chanel: "wvjwenfj3njfwef",
     //         title: "video 3",
     //         uploader: "abc",
@@ -51,17 +47,17 @@ const Videopage = () => {
     //     },
     //     {
     //         _id: 4,
-    //         video_src: vid,
+    //         video_src: vidd,
     //         chanel: "wvjwenfj3njfwef",
     //         title: "video 4",
     //         uploader: "abc",
     //         description: "description of video 4"
     //     },
     // ]
-
+    // console.log( vids)
     const vv = vids?.data.filter((q) => q._id === vid)[0]
-    const currentuser =  useSelector(state => state.currentuserreducer);
-
+   
+    const currentuser = useSelector(state => state.currentuserreducer);
     const handleviews=()=>{
         dispatch(viewvideo({id:vid}))
     }
@@ -77,7 +73,6 @@ const Videopage = () => {
         }
         handleviews()
     },[])
-
     return (
         <>
             <div className="container_videoPage">
@@ -105,7 +100,7 @@ const Videopage = () => {
                                 <h2>
                                     <u>Comments</u>
                                 </h2>
-                                <Comment videoid={vv._id} />
+                                <Comment videoid={vv._id}/>
                             </div>
                         </div>
                     </div>
@@ -116,4 +111,4 @@ const Videopage = () => {
     )
 }
 
-export default Videopage;
+export default Videopage
