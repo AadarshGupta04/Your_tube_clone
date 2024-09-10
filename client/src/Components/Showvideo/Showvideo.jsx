@@ -6,8 +6,8 @@ import moment from 'moment'
 const Showvideo = ({ vid }) => {
     return (
         <>
-            <Link to={`https://your-tube-clone-hxyj.onrender.com/videopage/${vid._id}`}>
-                <video src={`${vid.filepath}`} className='video_ShowVideo'></video>
+            <Link to={`/videopage/${vid._id}`}>
+                <video src={`https://your-tube-clone-hxyj.onrender.com/${vid.filepath}`} className='video_ShowVideo'></video>
             </Link>
             <div className='video_description'>
                 <div className="Chanel_logo_App">
