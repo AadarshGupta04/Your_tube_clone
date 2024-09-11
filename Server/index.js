@@ -8,8 +8,7 @@ import userroutes from "./Routes/User.js"
 import path from 'path'
 import commentroutes from './Routes/comment.js'
 
-
-require('dotenv').config();
+dotenv.config();
 const app=express()
 
 app.use(cors())
