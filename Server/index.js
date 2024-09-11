@@ -9,7 +9,7 @@ import path from 'path'
 import commentroutes from './Routes/comment.js'
 
 
-dotenv.config()
+require('dotenv').config();
 const app=express()
 
 app.use(cors())
